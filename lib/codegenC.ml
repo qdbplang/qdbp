@@ -223,4 +223,4 @@ let codegen_c methods main_method_id =
   ^ fn_declarations methods ^ "\n" ^ fn_definitions methods ^ "\n"
   ^ "\n  int main() {\n    _qdbp_init();\n    _qdbp_object_ptr result = "
   ^ main_method
-  ^ "(NULL);\n    _qdbp_drop(result, 1); _qdbp_cleanup(); return 0;\n  }\n  "
+  ^ "(NULL);\n    _qdbp_drop(result, 1); _qdbp_cleanup(); return _qdbp_get_return(result);\n  }\n  "

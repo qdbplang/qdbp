@@ -11,7 +11,7 @@ stack: {
   ]
   Peek[
     self Data.
-      Empty?[@abort!.]
+      Empty?[abort!.]
       NonEmpty?[data| data Val.].
   ]
 }

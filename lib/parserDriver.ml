@@ -9,6 +9,7 @@ let parse_file files filename =
     Error.internal_error ("parse_file: " ^ filename ^ " is relative")
   else
     let src = read_whole_file filename in
+    let src = Prelude.prelude ^ src in
     let lexbuf = Lexing.from_string src in
     let files = AstTypes.StringMap.add filename src files in
     Lexing.set_filename lexbuf filename;

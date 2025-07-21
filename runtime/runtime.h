@@ -214,7 +214,7 @@ _qdbp_object_ptr _qdbp_int_binary_op(_qdbp_object_ptr l, _qdbp_object_ptr r,
                                      enum _QDBP_ARITH_OP op);
 _qdbp_object_ptr _qdbp_int_unary_op(_qdbp_object_ptr obj,
                                     enum _QDBP_ARITH_OP op);
-// Memory
+// Memory and setup/teardown
 extern pthread_attr_t _qdbp_thread_attr;
 #define _QDBP_STR_INTERNAL(x) #x
 #define _QDBP_STR(x) _QDBP_STR_INTERNAL(x)
@@ -225,6 +225,8 @@ void _qdbp_free(void* ptr);
 void _qdbp_memcpy(void* dest, const void* src, size_t n);
 void _qdbp_init();
 void _qdbp_cleanup();
+int _qdbp_get_return(_qdbp_object_ptr result);
+_qdbp_object_ptr _qdbp_exit_int();
 
 // _qdbp_malloc_<type> allocates the physical memory for the object
 // _qdbp_free_<type> free the physical memory of the object

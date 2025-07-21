@@ -8,7 +8,7 @@ zero: {
     new_val:
       self Val.
         ; TODO: make this abort
-        Zero? [_: "Negative" Print. @abort!.]
+        Zero? [_: "Negative" Print. abort!.]
         Succ? [n| n].
     {self Val[new_val]}
   ]
@@ -29,7 +29,7 @@ zero: {
         Zero? [a]
         Succ? [n| 
           a
-            Zero? [_: "Negative" Print. @abort!.]
+            Zero? [_: "Negative" Print. abort!.]
             Succ? [m| 
               self! m b: n.
             ].

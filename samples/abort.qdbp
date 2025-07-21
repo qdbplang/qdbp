@@ -1,4 +1,3 @@
-; TODO: abort should actually abort
-{
-  self!.
-}
+_: "Aborting" Print.
+_: abort!.
+"Should not get here" Print.

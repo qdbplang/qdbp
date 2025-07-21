@@ -19,8 +19,10 @@ let surrounding_characters line_length start_col end_col =
     if start_col + 60 > line_length then (line_length - 60, 60)
     else (start_col, 60)
 
-let line_info line_num line = string_of_int line_num ^ "| " ^ line
+let prelude_length = List.length (String.split_on_char '\n' Prelude.prelude) - 1
+let line_info line_num line = string_of_int (line_num - prelude_length) ^ "| " ^ line
 let line_info_len line_num = String.length (string_of_int line_num ^ "| ")
+
 
 let str_of_locs ((loc1 : Lexing.position), (loc2 : Lexing.position)) files =
   assert (loc1.pos_fname = loc2.pos_fname);

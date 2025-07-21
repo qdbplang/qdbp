@@ -1,5 +1,5 @@
-; TODO: Fix TCO and then enable this example
-(*
+; NOTE: This doesn't work with sanitizers on. 
+; Because sanitizers prevent tco from working well
 while: {that body|
   that!.
     True? [
@@ -9,8 +9,5 @@ while: {that body|
     False? [{}].
 }
 
-; Will loop infinitely. But currently it's stack overflowing
 while! {1 < 2.}
   body: { {} }.
-*)
-"This currently doesn't work, but it should loop infinitely. I gotta fix the tco thing"

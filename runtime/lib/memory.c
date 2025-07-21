@@ -96,6 +96,14 @@ void _qdbp_cleanup() {
   pthread_exit(NULL);
 }
 
+int _qdbp_get_return(_qdbp_object_ptr result) {
+  if(_qdbp_is_unboxed_int(result)) {
+    return _qdbp_get_unboxed_int(result);
+  } else {
+    return 0;
+  }
+}
+
 static void _qdbp_free_gmp(void* ptr, size_t size) { _qdbp_free(ptr); }
 
 static void* _qdbp_realloc_gmp(void* ptr, size_t old_size, size_t new_size) {
@@ -216,4 +224,8 @@ void _qdbp_directory_free(size_t* dir) { _qdbp_free(dir); }
 
 size_t* _qdbp_directory_malloc(size_t size) {
   return _qdbp_malloc(size * sizeof(size_t));
+}
+
+_qdbp_object_ptr _qdbp_exit_int() {
+  exit(0);
 }
